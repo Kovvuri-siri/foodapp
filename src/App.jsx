@@ -14,7 +14,7 @@ const App = () => {
   const [search, setSearch] = useState('');
 
   useEffect(() => {
-    fetch('https://backend-1-bgcs.onrender.com/api/foods')
+    fetch('https://backend-wck7.onrender.com/api/foods')
       .then(res => res.json())
       .then(data => setFoods(data));
   }, []);
