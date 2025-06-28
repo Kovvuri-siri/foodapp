@@ -13,15 +13,20 @@ const App = () => {
   const [orderConfirmed, setOrderConfirmed] = useState(false);
   const [search, setSearch] = useState('');
 
-  useEffect(() => {
-    fetch('https://backend-wck7.onrender.com/api/foods')
+  const fetchFoods = (restaurant) => {
+    fetch(`https://backend-wck7.onrender.com/api/foods/${restaurant}`)
       .then(res => res.json())
       .then(data => setFoods(data));
-  }, []);
-  
+  };
 
   const addToCart = (food) => {
     setCart([...cart, food]);
+  };
+
+  const removeFromCart = (index) => {
+    const newCart = [...cart];
+    newCart.splice(index, 1);
+    setCart(newCart);
   };
 
   const confirmOrder = () => {
@@ -38,6 +43,7 @@ const App = () => {
           <p>Select a restaurant to explore the menu</p>
           <RestaurantList selectRestaurant={(name) => {
             setSelectedRestaurant(name);
+            fetchFoods(name);
             setPage('menu');
           }} />
         </div>
@@ -62,7 +68,7 @@ const App = () => {
         />
       </div>
       <FoodList foods={filteredFoods} addToCart={addToCart} />
-      <Cart cart={cart} confirmOrder={confirmOrder} />
+      <Cart cart={cart} removeFromCart={removeFromCart} confirmOrder={confirmOrder} />
     </div>
   );
 };

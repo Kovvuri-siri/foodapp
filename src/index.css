@@ -131,3 +131,38 @@ body {
   transform: scale(1.05);
 }
 
+.restaurant-list {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-top: 30px;
+}
+
+.restaurant {
+  background: white;
+  padding: 15px;
+  border-radius: 8px;
+  text-align: center;
+  cursor: pointer;
+  width: 220px;
+  transition: transform 0.2s;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.restaurant:hover {
+  transform: scale(1.05);
+}
+
+.restaurant img {
+  width: 200px;
+  height: 150px;
+  border-radius: 6px;
+  object-fit: cover;
+}
+
+.restaurant h3 {
+  margin-top: 10px;
+  font-size: 18px;
+  color: #333;
+}

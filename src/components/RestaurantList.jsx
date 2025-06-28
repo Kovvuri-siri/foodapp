@@ -10,7 +10,6 @@ const RestaurantList = ({ selectRestaurant }) => (
       <div key={index} className="restaurant" onClick={() => selectRestaurant(rest.name)}>
         <img src={rest.image} alt={rest.name} />
         <h3>{rest.name}</h3>
-        <p>{rest.location}</p>
       </div>
     ))}
   </div>
